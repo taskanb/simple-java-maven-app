@@ -9,7 +9,10 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                dir('simple-java-maven-app')            }
+                dir('simple-java-maven-app'){
+				archieve '*.jar'
+				}            
+			}
         }
         stage('Deliver') {
             steps {
