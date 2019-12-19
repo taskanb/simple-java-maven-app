@@ -10,11 +10,6 @@ pipeline {
         stage('Archive') {
             steps {
                 dir('simple-java-maven-app/target')            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
         }
         stage('Deliver') {
             steps {
