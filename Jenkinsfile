@@ -9,8 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'make'
-				archieveartifacts artifacts: '**/target/*.jar', fingerprint: true
+                echo 'Test'
             }
             
            }
