@@ -7,10 +7,9 @@ pipeline {
 			}
           }
         }
-        stage('Test') {
+        stage('Archive') {
             steps {
-                sh 'mvn test'
-            }
+                dir('simple-java-maven-app/target')            }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
