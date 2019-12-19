@@ -7,13 +7,12 @@ pipeline {
 			}
           }
         }
-        stage('Archive') {
+        stage('Compile') {
             steps {
-                dir('simple-java-maven-app'){
-				archieve '*.jar'
+                sh 'mvn clean install'
+				
 				}            
 			}
         }
      }
- }
 
