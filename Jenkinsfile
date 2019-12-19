@@ -4,7 +4,6 @@ pipeline {
         stage('Build') {
             steps {
                 dir ('simple-java-maven-app'){
-				sh 'mvn clean install test '
 			}
           }
         }
