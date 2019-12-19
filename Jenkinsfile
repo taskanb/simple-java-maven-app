@@ -9,14 +9,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'make'
+				archieveartifacts artifacts: '**/target/*.jar', fingerprint: true
             }
-            post {
-                always {
-                    junit 'target/*.xml'
-                }
-            }
+            
+           }
         }
-        }
-     }
+      }
+   
 
