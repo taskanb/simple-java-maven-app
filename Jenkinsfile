@@ -7,12 +7,16 @@ pipeline {
 			}
           }
         }
-        stage('Compile') {
+        stage('Test') {
             steps {
-                sh 'mvn clean install'
-				
-				}            
-			}
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/*.xml'
+                }
+            }
+        }
         }
      }
 
