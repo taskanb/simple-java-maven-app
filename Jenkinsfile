@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Archive') {
             steps {
-                dir('simple-java-maven-app/target')            }
+                dir('simple-java-maven-app')            }
         }
         stage('Deliver') {
             steps {
