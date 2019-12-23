@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir ('simple-java-maven-app'){
+				sh 'mvn -B -DskipTests clean package'
 			}
           }
         }
@@ -12,13 +13,7 @@ pipeline {
                 echo 'Test'
             }
 		}
-		
-		stage('Deliver') {
-			steps {
-				sh './jenkins/scripts/deliver.sh'
-			}
-		}
-            
+		    
     }
  }
    
