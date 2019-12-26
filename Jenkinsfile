@@ -5,15 +5,10 @@ pipeline {
             steps {
 				echo 'Build Starts!'
                 dir ('simple-java-maven-app'){
+				bat 'mvn -B -DskipTests clean install'
 				echo 'Build Ends!'
 			}
-          }
-		  
-		post {
-		success {
-			archieveArtifacts 'target/*.hpi, target/*.jpi'
-			}
-	}
+       } 
 }
 	
         stage('Test') {
@@ -29,7 +24,7 @@ pipeline {
 
 		stage('Deliver') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                bat './jenkins/scripts/deliver.sh'
             }
         }  
     }
