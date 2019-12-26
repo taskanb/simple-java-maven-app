@@ -4,10 +4,9 @@ pipeline {
         stage('Build') {
             steps {
 				echo 'Build Starts!'
-                dir ('simple-java-maven-app'){
-				bat 'mvn -B -DskipTests clean install'
+				bat 'mvn -B -DskipTests clean package'
 				echo 'Build Ends!'
-			}
+			
        } 
 }
 	
