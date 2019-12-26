@@ -8,18 +8,25 @@ pipeline {
 				echo 'Build Ends!'
 			}
           }
-        }
+		  
+		post {
+		success {
+			archieveArtifacts 'target/*.hpi, target/*.jpi'
+			}
+	}
+}
+	
         stage('Test') {
             steps {
                 echo 'Test Starts!'
-				sh 'mvn test'
             }
-			post {
-				always {
-					junit 'target/surefire-reports/*.xml'
-				}
-			}
+		post {
+			always {
+				junit 'target/surefire-reports/*.xml'
 		}
+	}
+}
+
 		stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
