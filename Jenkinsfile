@@ -12,16 +12,20 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test Starts!'
+				sh 'mvn test'
             }
-		}
-		
-		post {
-			always {
-				junit 'target/surfire-reports/*.xml'
+			post {
+				always {
+					junit 'target/surefire-reports/*.xml'
+				}
 			}
 		}
-		    
+		stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
+            }
+        }  
+    }
  }
-}
    
 
