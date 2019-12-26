@@ -13,14 +13,15 @@ pipeline {
             steps {
                 echo 'Test Starts!'
             }
-			post {
-				always {
-					junit 'target/surfire-reports/*.xml'
-				}
+		}
+		
+		post {
+			always {
+				junit 'target/surfire-reports/*.xml'
 			}
 		}
 		    
-    }
  }
+}
    
 
