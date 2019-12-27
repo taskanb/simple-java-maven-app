@@ -23,6 +23,8 @@
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.0.2</version>
         <configuration>
+        	<fork>true</fork>
+        	<executable>C:\Program Files\Java\jdk1.8.0_221\bin\javac.exe</executable>
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
